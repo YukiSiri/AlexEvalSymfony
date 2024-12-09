@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MarqueController extends AbstractController
 {
-    #[Route('/marque', name: 'app_marque_index')]
+    #[Route('/', name: 'app_marque_index')]
     public function index(EntityManagerInterface $em): Response
     {
         $marques = $em->getRepository(Marque::class)->findAll();

@@ -8,12 +8,22 @@
         <tr>
             <th>Nom</th>
             <th>Description</th>
+            <th>Coussins</th>
             <th></th>
         </tr>
         {% for m in marques %}
             <tr>
                 <td>{{ m.Nom }}</td>
                 <td>{{ m.Description }}</td>
+                <td>
+                    <ul>
+                        {% for coussin in m.coussins %}
+                            <li>{{ coussin.Titre }}</li>
+                        {% else %}
+                            <li>Aucun coussin associé</li>
+                        {% endfor %}
+                    </ul>
+                </td>
                 <td>
                     <a href="{{ path('app_modifier_marque', {'id': m.id}) }}" class="btn btn-sm btn-primary">
                         <i class="fa-solid fa-pen-to-square"></i>
@@ -27,4 +37,6 @@
     </table>
     <h2>Ajouter une marque :</h2>
     <a href="{{ path('app_ajouter_marque') }}" class="btn btn-success">Ajouter</a>
+    <h2>Ajouter un coussin :</h2>
+    <a href="{{ path('app_coussin_index') }}" class="btn btn-success">Ajouter un coussin</a>
 {% endblock %}
