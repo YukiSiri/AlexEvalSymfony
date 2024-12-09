@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des marques{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue</h1>
+    <table class="table table-stripped">
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        {% for m in marques %}
+            <tr>
+                <td>{{ m.Nom }}</td>
+                <td>{{ m.Description }}</td>
+                <td>
+                    <a href="{{ path('app_modifier_marque', {'id': m.id}) }}" class="btn btn-sm btn-primary">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a href="{{ path('app_supprimer_categorie', {'id': m.id}) }}" class="btn btn-sm btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h2>Ajouter une marque :</h2>
+    <a href="{{ path('app_ajouter_marque') }}" class="btn btn-success">Ajouter</a>
+{% endblock %}
