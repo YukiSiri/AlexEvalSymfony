@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coussin{% endblock %}
+
+{% block body %}
+    <h1>Coussin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ coussin.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ coussin.Titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ coussin.Description }}</td>
+            </tr>
+            <tr>
+                <th>Contenance</th>
+                <td>{{ coussin.Contenance }}</td>
+            </tr>
+            <tr>
+                <th>Matiere</th>
+                <td>{{ coussin.Matiere }}</td>
+            </tr>
+            <tr>
+                <th>Dimensions</th>
+                <td>{{ coussin.Dimensions }}</td>
+            </tr>
+            <tr>
+                <th>AccessoireVenduSeparement</th>
+                <td>{{ coussin.AccessoireVenduSeparement ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>PoidsPlein</th>
+                <td>{{ coussin.PoidsPlein }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_coussin_index') }}">Revenir à la liste</a>
+
+    <a href="{{ path('app_coussin_edit', {'id': coussin.id}) }}">Modifier</a>
+
+    {{ include('coussin/_delete_form.html.twig') }}
+{% endblock %}

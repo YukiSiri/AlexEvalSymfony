@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Coussin{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau Coussin</h1>
+
+    {{ include('coussin/_form.html.twig') }}
+
+    <a href="{{ path('app_coussin_index') }}">Revenir à la liste</a>
+{% endblock %}

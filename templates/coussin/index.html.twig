@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Coussin index{% endblock %}
+
+{% block body %}
+    <h1>Coussin</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Contenance</th>
+                <th>Matiere</th>
+                <th>Dimensions</th>
+                <th>AccessoireVenduSeparement</th>
+                <th>PoidsPlein</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for coussin in coussins %}
+            <tr>
+                <td>{{ coussin.id }}</td>
+                <td>{{ coussin.Titre }}</td>
+                <td>{{ coussin.Description }}</td>
+                <td>{{ coussin.Contenance }}</td>
+                <td>{{ coussin.Matiere }}</td>
+                <td>{{ coussin.Dimensions }}</td>
+                <td>{{ coussin.AccessoireVenduSeparement ? 'oui' : 'non' }}</td>
+                <td>{{ coussin.PoidsPlein }}</td>
+                <td>
+                    <a href="{{ path('app_coussin_show', {'id': coussin.id}) }}">Montrer</a>
+                    <a href="{{ path('app_coussin_edit', {'id': coussin.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucun coussin de créer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_coussin_new') }}">Créer un nouveau coussin</a>
+{% endblock %}
